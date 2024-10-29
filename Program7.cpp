@@ -31,6 +31,14 @@ int main() {
     cout << "Please Enter Value for r: ";
     cin >> r;
     int enMinusAr = n - r;
+    if (enMinusAr == 0) {
+        enMinusAr = 1;
+    }
+    int enPlusKminusOne = (n + r) - 1;
+    int specialN = enPlusKminusOne - r;
+    if (specialN == 0) {
+        specialN = 1;
+    }
 
     int permWithRep = permWithRepeats(n, r);
     cout << endl << "P(n,r) with repeats: " << permWithRep << endl;
@@ -38,6 +46,13 @@ int main() {
     int permWithoutRep = factorial(n) / factorial(enMinusAr);
     cout << "P(n,r) without repeats: " << permWithoutRep << endl;
 
+    int combWithRepeats = factorial(n) / (factorial(r) * factorial(enMinusAr));
+    cout << "C(n,r) with repeats: " << combWithRepeats << endl;
+
+    int combWithOutRepeats = factorial(enPlusKminusOne) / (factorial(r) * factorial(specialN));
+    cout << "C(n,r) with repeats: " << combWithOutRepeats << endl;
+
+    cout << "Thank You!" << endl;
 
     return 0;
 }
